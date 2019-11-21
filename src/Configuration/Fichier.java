@@ -1,11 +1,11 @@
 package Configuration;
 
 /**
-* TP n°2 V n°1 :
+* TP n°4 V n°1 :
 *
-* Titre du TP : HashLinearProbing
+* Titre du TP : “Disk” Nested Loop Join
 * 
-* Date :08/11/2019
+* Date :15/11/2019
 *
 * Nom : GHOUAS
 * Prénom : Abdelhak

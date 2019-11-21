@@ -1,6 +1,6 @@
 package FileDescriptor;
-
 import java.io.File;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -10,7 +10,26 @@ import Configuration.Fichier;
 import Model.BlockModel;
 import Model.FileDescriptorModel;
 import javafx.scene.control.Tab;
-
+/**
+* TP n°4 V n°1 :
+*
+* Titre du TP : “Disk” Nested Loop Join
+* 
+* Date :15/11/2019
+*
+* Nom : GHOUAS
+* Prénom : Abdelhak
+* N° d'étudiant : 21707514
+* email : ghouas.abdelhak@gmail.com
+* 
+* 
+* Nom : OUHENIA
+* Prénom : Nassim
+* N° d'étudiant : 21703313
+* email : nassim.ouhenia@gmail.com
+*
+* Remarques :
+*/
 public class FileDesriptor implements FileDescriptorModel {
 
 	
