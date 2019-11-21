@@ -14,9 +14,11 @@ public class InitDescriptor {
 	static int index = 0;
 	static int i = 0;
 	static int len = 96;
-	static int max_size = 10;
 
 	public static void initDescriptors(Configurator config, Fichier fichier, FileDesriptor fdR, FileDesriptor fdS) throws IOException {
+		
+		int max_size = config.getMX_SIZE();
+		
 		ArrayList<String> shuffleString = ShuffleString.shuffleChar();
 
 		BlockModel block = new Block(config, fichier);
@@ -27,7 +29,7 @@ public class InitDescriptor {
 
 			tab[index] = shuffleString.get(i);
 			i++;
-			index = i % 10;
+			index = i % max_size;
 
 			if (index == 0) {
 				block.create();
@@ -46,7 +48,7 @@ public class InitDescriptor {
 
 			tab[index] = shuffleString.get(i);
 			i++;
-			index = i % 10;
+			index = i % max_size;
 
 			if (index == 0) {
 				block.create();
