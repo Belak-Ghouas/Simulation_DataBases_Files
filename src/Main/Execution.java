@@ -35,7 +35,7 @@ public class Execution {
 		// TODO Auto-generated method stub
 		Configurator config= new Configurator();
 		Fichier fichier = new Fichier(config);
-		Block block = new Block(config , fichier);
+		BlockModel block = new Block(config , fichier);
 		FileDesriptor desc = new FileDesriptor(config,fichier);
 		
 		desc.create("R");
@@ -52,7 +52,7 @@ public class Execution {
 		desc.removeBlock(block);
 		
 		block.load(desc.getNextBlock());
-		System.out.println(block.getNameFile());
+		System.out.println(block.getPos());
 		
 	}
 

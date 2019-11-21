@@ -1,4 +1,4 @@
-package Configurator;
+package Configuration;
 
 import java.util.ArrayList;
 import java.util.Collections;

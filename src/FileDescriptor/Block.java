@@ -34,6 +34,7 @@ public class Block implements BlockModel {
 	private String Namefile;
 	private Configurator config;
 	private Fichier fichier;
+	private int pos;
 	
 	
 	public Block (Configurator config , Fichier fichier) throws IOException {
@@ -41,19 +42,27 @@ public class Block implements BlockModel {
 		this.config=config;
 		this.fichier=fichier;
 		TabChar=new String[config.getMX_SIZE()];
-		
+		pos=0;
+	}
+	@Override
+	public int getPos() {
+		return this.pos;
 	}
 	
-	
-
+	@Override
+	public String [] getCharTab() {
+		return this.TabChar;
+	}
+	@Override
 	public int getNumBlock() {
 		return NumBlock;
 	}
-	
+	@Override
 	public int getId() {
 		return this.Id;
 	}
-
+	
+	@Override
 	public void setNumBlock(int numBlock) {
 		NumBlock = numBlock;
 	}
@@ -79,6 +88,11 @@ public class Block implements BlockModel {
 		String path=config.getPathBlock()+Namefile;
 		TabChar=fichier.lire(path);
 		this.Id=Id;
+		for(int i=0;i<TabChar.length;i++) {
+			if(TabChar[i]!=null)
+				this.pos+=1;
+		}
+			
 		return TabChar;
 		
 	}
@@ -87,9 +101,10 @@ public class Block implements BlockModel {
 	public void store(String [] tab) throws IOException {
 		String path=config.getPathBlock()+Namefile;
 		fichier.ecrire(tab, path);
+		this.TabChar=tab;
 		
 	}
-	
+	@Override
 	public String getNameFile() {
 		return this.Namefile;
 	}

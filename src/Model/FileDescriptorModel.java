@@ -27,7 +27,12 @@ public interface FileDescriptorModel {
 
 	public void create(String namefile ) throws IOException;
 	public int getNextBlock() throws IOException;
-	public void addBlock(Block block) throws IOException;
-	public int removeBlock(Block block) throws IOException;
+	public void addBlock(BlockModel block) throws IOException;
+	public int removeBlock(BlockModel block) throws IOException;
+	String[] getCharTab();
+	int getNumBlock();
+	String getNameFile();
+	int getPos();
+	void SetNumBlock(int s);
 	
 }
