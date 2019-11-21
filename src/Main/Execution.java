@@ -1,0 +1,40 @@
+package Main;
+
+
+import java.io.IOException;
+
+import Configuration.Configurator;
+import Configuration.Fichier;
+import FileDescriptor.Block;
+import FileDescriptor.FileDesriptor;
+import Model.BlockModel;
+import Model.FileDescriptorModel;
+
+public class Execution {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Configurator config= new Configurator();
+		Fichier fichier = new Fichier(config);
+		Block block = new Block(config , fichier);
+		FileDesriptor desc = new FileDesriptor(config,fichier);
+		
+		desc.create("R");
+		
+		block.create();
+		String []tab= {"helo","abdelhak","tu vas bien"};
+		String []tab2= {"oui ","merci","et toi"};
+		block.store(tab);
+		desc.addBlock(block);
+		block.create();
+		block.store(tab2);
+		desc.addBlock(block);
+		
+		desc.removeBlock(block);
+		
+		block.load(desc.getNextBlock());
+		System.out.println(block.getNameFile());
+		
+	}
+
+}
