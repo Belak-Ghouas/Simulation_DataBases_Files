@@ -26,11 +26,11 @@ public interface BlockModel {
 		public void create() throws IOException;
 		public String [] load(int NumBlock) throws IOException;
 		public void store(String [] tab) throws IOException;
-		String getNameFile();
-		void setNumBlock(int numBlock);
-		int getId();
-		int getNumBlock();
-		String[] getCharTab();
-		int getPos();
+		public String getNameFile();
+		public void setNumBlock(int numBlock);
+		public int getId();
+		public int getNumBlock();
+		public String[] getCharTab();
+		public int getPos();
 		
 		}

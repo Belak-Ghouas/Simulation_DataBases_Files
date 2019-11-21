@@ -88,6 +88,7 @@ public class Block implements BlockModel {
 		String path=config.getPathBlock()+Namefile;
 		TabChar=fichier.lire(path);
 		this.Id=Id;
+		this.pos=0;
 		for(int i=0;i<TabChar.length;i++) {
 			if(TabChar[i]!=null)
 				this.pos+=1;

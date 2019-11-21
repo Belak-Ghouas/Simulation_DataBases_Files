@@ -103,7 +103,7 @@ public class FileDesriptor implements FileDescriptorModel {
 
 	@Override
 	public void addBlock(BlockModel block) throws IOException {
-		int i = 0;
+		
 		
 		if(pos<TabChar.length) {
 			TabChar[pos] = String.valueOf(block.getId());

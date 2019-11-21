@@ -29,10 +29,10 @@ public interface FileDescriptorModel {
 	public int getNextBlock() throws IOException;
 	public void addBlock(BlockModel block) throws IOException;
 	public int removeBlock(BlockModel block) throws IOException;
-	String[] getCharTab();
-	int getNumBlock();
-	String getNameFile();
-	int getPos();
-	void SetNumBlock(int s);
+	public String[] getCharTab();
+	public int getNumBlock();
+	public String getNameFile();
+	public int getPos();
+	public void SetNumBlock(int s);
 	
 }
