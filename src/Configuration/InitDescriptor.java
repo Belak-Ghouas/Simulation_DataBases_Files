@@ -5,19 +5,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import FileDescriptor.Block;
-import FileDescriptor.FileDesriptor;
 import Model.BlockModel;
+import Model.FileDescriptorModel;
 
 
 public class InitDescriptor {
 
 	static int index = 0;
 	static int i = 0;
-	static int len = 96;
+	static int lenR = 96;
+	static int lenS = 44;
+	
+	public InitDescriptor(int lenR, int lenS) {
+		index = 0;
+		i = 0;
+		this.lenR = lenR;
+		this.lenS = lenS;
+	}
 
-	public static void initDescriptors(Configurator config, Fichier fichier, FileDesriptor fdR, FileDesriptor fdS) throws IOException {
+	public static void initDescriptors(Configurator config, Fichier fichier, FileDescriptorModel fdR, FileDescriptorModel fdS) throws IOException {
 		
 		int max_size = config.getMX_SIZE();
+		
+		System.out.println(max_size);
 		
 		ArrayList<String> shuffleString = ShuffleString.shuffleChar();
 
@@ -25,7 +35,7 @@ public class InitDescriptor {
 
 		String tab[] = new String[max_size];
 
-		while (i < len) {
+		while (i < lenR) {
 
 			tab[index] = shuffleString.get(i);
 			i++;
@@ -35,16 +45,20 @@ public class InitDescriptor {
 				block.create();
 				block.store(tab);
 				fdR.addBlock(block);
+				tab = new String[max_size];
 			}
 		}
+		
+		block.create();
+		block.store(tab);
+		fdR.addBlock(block);
 
 		Collections.shuffle(shuffleString);
 
 		i = 0;
 		index = 0;
-		len = 44;
-
-		while (i < len) {
+		tab = new String[max_size];
+		while (i < lenS) {
 
 			tab[index] = shuffleString.get(i);
 			i++;
@@ -53,8 +67,12 @@ public class InitDescriptor {
 			if (index == 0) {
 				block.create();
 				block.store(tab);
-				fdR.addBlock(block);
+				fdS.addBlock(block);
+				tab = new String[max_size];
 			}
 		}
+		block.create();
+		block.store(tab);
+		fdS.addBlock(block);
 	}
 }
