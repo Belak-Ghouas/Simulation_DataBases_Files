@@ -5,10 +5,10 @@ import java.io.IOException;
 
 import Configuration.Configurator;
 import Configuration.Fichier;
+import Configuration.InitDescriptor;
 import FileDescriptor.Block;
 import FileDescriptor.FileDesriptor;
 import Model.BlockModel;
-import Model.FileDescriptorModel;
 /**
 * TP n°4 V n°1 :
 *
@@ -35,24 +35,14 @@ public class Execution {
 		// TODO Auto-generated method stub
 		Configurator config= new Configurator();
 		Fichier fichier = new Fichier(config);
-		BlockModel block = new Block(config , fichier);
-		FileDesriptor desc = new FileDesriptor(config,fichier);
 		
-		desc.create("R");
+		FileDesriptor fdR = new FileDesriptor(config,fichier);
+		FileDesriptor fdS = new FileDesriptor(config,fichier);
 		
-		block.create();
-		String []tab= {"helo","abdelhak","tu vas bien"};
-		String []tab2= {"oui ","merci","et toi"};
-		block.store(tab);
-		desc.addBlock(block);
-		block.create();
-		block.store(tab2);
-		desc.addBlock(block);
+		fdR.create("R");
+		fdS.create("S");
 		
-		desc.removeBlock(block);
-		
-		block.load(desc.getNextBlock());
-		System.out.println(block.getPos());
+		InitDescriptor.initDescriptors(config, fichier, fdR, fdS);
 		
 	}
 
